@@ -1,10 +1,11 @@
 ---
 title: "Unique Features of R for Programmers"
-author: "Your Name"
+author: "Yuhao, JC (mentor)"
+mentor: "JC"
 date: "`r Sys.Date()`"
 output:
   ioslides_presentation:
-    incremental: true
+    incremental: false
 ---
 
 ## Introduction
@@ -109,19 +110,28 @@ print(result)
 - Create complex and customizable visualizations.
 - Based on the **Grammar of Graphics**.
 
---- 
+---
 
 ```{r}
 library(ggplot2)
-ggplot(mtcars, aes(x = wt, y = mpg, color = factor(gear))) +
-  geom_point(size = 3) +
-  labs(
-    title = "Fuel Efficiency by Car Weight",
-    x = "Weight (1000 lbs)",
-    y = "Miles per Gallon",
-    color = "Gears"
-  ) +
-  theme_minimal()
+
+# Create the plot and store it in a variable
+p <- ggplot(mtcars, aes(x = wt, y = mpg, color = factor(gear))) +
+     geom_point(size = 3) +
+     labs(
+       title = "Fuel Efficiency by Car Weight",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon",
+       color = "Gears"
+     ) +
+     theme_minimal()
+```
+
+---
+
+```{r}
+# Display the plot
+p
 ```
 
 ## Interfacing with Other Languages
@@ -151,10 +161,13 @@ fibonacci(10)  # Outputs: 55
 
 ```{r}
 library(randomForest)
+```
+
+---
+```{r}
 model <- randomForest(Species ~ ., data = iris)
 print(model)
 ```
-
 
 ## Parallel Computing
 
